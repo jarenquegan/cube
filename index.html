@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>3D Mystery Cube</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background: #000;      
+      overflow: hidden;
+      font-family: Arial, sans-serif;
+    }
+
+    .scene {
+      perspective: 1000px;
+    }
+
+    .cube {
+      position: relative;
+      width: 200px;
+      height: 200px;
+      transform-style: preserve-3d;
+      animation: spin 6s infinite linear;
+    }
+
+    .face {
+      position: absolute;
+      width: 200px;
+      height: 200px;
+      border: 2px solid rgba(255, 255, 255, 0.1);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 18px;
+      font-weight: bold;
+      color: white;
+    }
+
+    .face:nth-child(1) {
+      background: linear-gradient(135deg, rgba(92, 43, 167, 1), rgba(252, 88, 153, 1));
+      transform: rotateY(0deg) translateZ(100px);
+    }
+
+    .face:nth-child(2) {
+      background: linear-gradient(135deg, rgba(58, 30, 117, 1), rgba(198, 138, 255, 1));
+      transform: rotateY(90deg) translateZ(100px);
+    }
+
+    .face:nth-child(3) {
+      background: linear-gradient(135deg, rgba(36, 22, 68, 1), rgba(92, 43, 167, 1));
+      transform: rotateY(180deg) translateZ(100px);
+    }
+
+    .face:nth-child(4) {
+      background: linear-gradient(135deg, rgba(252, 88, 153, 1), rgba(58, 30, 117, 1));
+      transform: rotateY(-90deg) translateZ(100px);
+    }
+
+    .face:nth-child(5) {
+      background: linear-gradient(135deg, rgba(198, 138, 255, 1), rgba(92, 43, 167, 1));
+      transform: rotateX(90deg) translateZ(100px);
+    }
+
+    .face:nth-child(6) {
+      background: linear-gradient(135deg, rgba(92, 43, 167, 1), rgba(36, 22, 68, 1));
+      transform: rotateX(-90deg) translateZ(100px);
+    }
+
+    @keyframes spin {
+      0% {
+        transform: rotateX(0deg) rotateY(0deg);
+      }
+
+      100% {
+        transform: rotateX(360deg) rotateY(360deg);
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="scene">
+    <div class="cube">
+      <div class="face"><span>Front</span></div>
+      <div class="face"><span>Right</span></div>
+      <div class="face"><span>Back</span></div>
+      <div class="face"><span>Left</span></div>
+      <div class="face"><span>Top</span></div>
+      <div class="face"><span>Bottom</span></div>
+    </div>
+  </div>
+</body>
+
+</html>
